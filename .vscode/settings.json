@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./TEASER-plusplus/examples/teaser_python_fpfh_icp"
+    ]
+}
