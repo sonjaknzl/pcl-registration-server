@@ -4,7 +4,7 @@ from app.model.i_algorithm_service import IAlgorithmService
 import teaserpp_python
 from .helpers import *
 
-class TeaserPP(IAlgorithmService):
+class TeaserPPService(IAlgorithmService):
 
     def calculate_transformation_matrix(self, source: o3d.geometry.PointCloud, target: o3d.geometry.PointCloud):
        

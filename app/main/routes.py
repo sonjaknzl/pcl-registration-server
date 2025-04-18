@@ -15,7 +15,7 @@ def calculate_location():
     
     # SET ALGORITHM & TARGET
     algorithm = int(data.get('algorithm', -1))
-    targetmodel = int(data.get('targetmodel', -1))
+    targetmodel = data.get('targetmodel', -1)
     sourcepoints = int(data.get('sourcemodel', -1))
     
     # Define the folder paths for source and target point clouds
@@ -30,7 +30,7 @@ def calculate_location():
     target_folder = os.path.abspath(target_folder)
     
     # Construct file paths dynamically based on targetmodel and sourcemodel
-    target_model_file = os.path.join(target_folder, f"{targetmodel}.ply")
+    target_model_file = os.path.join(target_folder, f"{targetmodel}")
     
     # Load the target point cloud
     if not os.path.isfile(target_model_file):
@@ -89,8 +89,8 @@ def draw(source, target):
     target_temp = copy.deepcopy(target)
     
     # Assign uniform colors to the source and target
-    source_temp.paint_uniform_color([1, 0, 0])  # Red for the source point cloud
-    target_temp.paint_uniform_color([0, 1, 1])  # Cyan for the target point cloud
+    source_temp.paint_uniform_color([1, 0, 0]) 
+    target_temp.paint_uniform_color([0, 1, 1])  
     
     # Combine both point clouds into one
     precombined_pcd = source_temp + target_temp
