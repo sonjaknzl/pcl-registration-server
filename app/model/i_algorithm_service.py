@@ -17,12 +17,12 @@ class IAlgorithmService(ABC):
         print(":: Downsample with a voxel size %.3f." % voxel_size)
         pcd_down = pcd.voxel_down_sample(voxel_size)
 
-        radius_normal = voxel_size * 200
+        radius_normal = voxel_size * 2
         print(":: Estimate normal with search radius %.3f." % radius_normal)
         pcd_down.estimate_normals(
             o3d.geometry.KDTreeSearchParamHybrid(radius=radius_normal, max_nn=30))
 
-        radius_feature = voxel_size * 500
+        radius_feature = voxel_size * 5
         print(":: Compute FPFH feature with search radius %.3f." % radius_feature)
         pcd_fpfh = o3d.pipelines.registration.compute_fpfh_feature(
             pcd_down,
